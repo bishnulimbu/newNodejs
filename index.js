@@ -1,14 +1,17 @@
 // console.log('Hello World!');
 
+
 const express = require('express');
+const { testFn } = require('./controllers/testController');
 const app = express(); // express is initialized in this line.
-const PORT = 4000;
-app.get('/', (req, res) => {
+const PORT = 5000;
+app.get('/about', (req, res) => {
   res.json({
-    message: "hello world from / route",
+    message: "hello world from /about route",
   });
 });
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 
 });
+app.get('/test', testFn);
