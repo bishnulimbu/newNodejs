@@ -15,3 +15,8 @@ app.listen(PORT, () => {
 
 });
 app.get('/test', testFn);
+
+
+const { test2Fn } = require('./controllers/test2');
+
+app.get('/test2', test2Fn);
