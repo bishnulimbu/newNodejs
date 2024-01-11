@@ -46,3 +46,23 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 module.exports = db;
+
+db.blog = require("./blog.js")(
+  sequelize, Sequelize
+)
+// const dbconfig = require("../dbconfig/dbconfig.js");
+// const sequelize = require("sequelize");
+//
+// const sequelize = new sequelize(
+//   dbconfig.db,
+//   dbconfig.username,
+//   dbconfig.password,
+//   {
+//     host: dbconfig.host,
+//     dialect: dbconfig.dialect,
+//     pool: {
+//       max: dbconfig.pool.max,
+//       min: dbconfig.pool.min,
+//       accurate: dbconfig.pool.accurate,
+//       idle: dbconfig.pool.idle,
+//     },
