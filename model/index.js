@@ -33,3 +33,16 @@ const sequelize = new Sequelize(dbConfig.db,
     },
   }
 );
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("connected to datebase successfully");
+  })
+  .catch((err) => {
+    console.log(err);
+
+  });
+const db = {};
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+module.exports = db;
