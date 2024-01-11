@@ -1,8 +1,4 @@
-// console.log('Hello World!');
-
-
 const express = require('express');
-const { testFn } = require('./controllers/testController');
 const app = express(); // express is initialized in this line.
 const PORT = 5000;
 app.get('/about', (req, res) => {
@@ -12,8 +8,8 @@ app.get('/about', (req, res) => {
 });
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-
 });
+const { testFn } = require('./controllers/testController');
 app.get('/test', testFn);
 
 
@@ -25,4 +21,5 @@ const { evenFn } = require('./controllers/even');
 
 app.get('/even', evenFn);
 
-
+// const {fucntion name} = require('./file location');
+// app.get('file name containing function', file name);
