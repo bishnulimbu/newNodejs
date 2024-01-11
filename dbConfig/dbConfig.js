@@ -1,10 +1,10 @@
 module.exports = {
-  username: 'ram',
+  username: 'root',
   host: 'localhost',
   bd: 'okcrud',
   password: '',
   dialect: 'mysql',
-  pool: {
+  pool: {           //connection 
     max: 5,
     min: 0,
     idle: 10000,
