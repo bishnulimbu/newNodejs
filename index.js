@@ -23,3 +23,4 @@ app.get('/even', evenFn);
 
 // const {fucntion name} = require('./file location');
 // app.get('file name containing function', file name);
+const db = require('./model/index.js');
