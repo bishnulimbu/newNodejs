@@ -1,26 +1,20 @@
 const express = require('express');
-const app = express(); // express is initialized in this line.
-const PORT = 5000;
-app.get('/about', (req, res) => {
-  res.json({
-    message: "hello world from /about route",
-  });
-});
+const app = express();
+
+const db = require('./model/index.js')
+db.sequelize.sync({ force: false })
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+const createRoutes = require("./routes/blogs.js");
+
+app.use("/api", createRoutes);
+
+
+let PORT = 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`server is started in ${PORT}`);
 });
-const { testFn } = require('./controllers/testController');
-app.get('/test', testFn);
 
 
-const { test2Fn } = require('./controllers/test2');
-
-app.get('/test2', test2Fn);
-
-const { evenFn } = require('./controllers/even');
-
-app.get('/even', evenFn);
-
-// const {fucntion name} = require('./file location');
-// app.get('file name containing function', file name);
-const db = require('./model/index.js');
