@@ -1,7 +1,7 @@
 module.exports = {
   username: 'root',
   host: 'localhost',
-  bd: 'okcrud',
+  db: 'okcurd',
   password: '',
   dialect: 'mysql',
   pool: {           //connection 
