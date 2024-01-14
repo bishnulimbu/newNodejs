@@ -27,6 +27,25 @@ exports.getBlogsById = async (req, res) => {
   res.status(200).send(result);
 };
 exports.deleteBlogsById = async (req, res) => {
-  let result = await blogs.findByPk(req.params.id);
-  res.status(200).send(result);
+  let result = await blogs.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.status(200).json({
+    success: true,
+    messsage: "deleted Successfully",
+  });
+}
+exports.updateBlog = async (req, res) => {
+  let result = await blogs.update({
+    ...req.body,
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.status(200).json({
+    success: true,
+    message: "Updated successfully.",
+  });
 };
