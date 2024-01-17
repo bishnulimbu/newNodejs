@@ -8,8 +8,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const createRoutes = require("./routes/blogs.js");
+const authRoutes = require("./routes/authRoute.js");
 
 app.use("/api", createRoutes);
+app.use("/auth", authRoutes);
 
 
 let PORT = 5000;
