@@ -34,12 +34,11 @@ exports.deleteBlogsById = async (req, res) => {
   });
   res.status(200).json({
     success: true,
-    messsage: "deleted Successfully",
+    message: "deleted Successfully",
   });
 }
 exports.updateBlog = async (req, res) => {
-  let result = await blogs.update({
-    ...req.body,
+  await blogs.update({ ...req.body }, {
     where: {
       id: req.params.id,
     },
